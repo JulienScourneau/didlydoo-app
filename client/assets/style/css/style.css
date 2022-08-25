@@ -110,7 +110,6 @@ input {
   margin: 0.5rem;
 }
 .event__header__nav__buttons {
-  position: relative;
   right: 0;
   top: 0;
   float: right;
@@ -128,6 +127,50 @@ input {
   width: 90%;
   margin: 0.2rem;
   padding: 0.3rem;
+}
+.event__content {
+  width: 100%;
+}
+.event__content__table {
+  width: 100%;
+  background-color: aquamarine;
+}
+.event__content__table__header {
+  border: 1px solid black;
+}
+.event__content__table__header tr {
+  border: 1px solid black;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.event__content__table__header tr th {
+  border: 1px solid black;
+  padding: 0.2rem;
+}
+.event__content__table__data {
+  border: 1px solid black;
+}
+.event__content__table__data tr {
+  border: 1px solid black;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.event__content__table__data tr th {
+  border: 1px solid black;
+  padding: 0.2rem;
+  width: 30%;
+}
+.event__content__table__data tr td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.checkbox {
+  -webkit-appearance: checkbox;
+     -moz-appearance: checkbox;
+          appearance: checkbox;
 }
 
 .new-event {
