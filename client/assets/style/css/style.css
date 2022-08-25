@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -49,4 +50,82 @@ table {
 input {
   -webkit-appearance: none;
   border-radius: 0;
+}
+
+.main {
+  margin: auto;
+  border: 2px solid black;
+}
+
+.eventsection {
+  margin: auto;
+  width: 100vw;
+  border: 2px solid green;
+}
+
+.event {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: 95%;
+  border: 2px solid yellow;
+}
+.event__header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.event__header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border: 2px solid pink;
+}
+.event__header__nav__info {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  border: 2px solid rgb(122, 220, 167);
+  margin: 0.5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.event__header__nav__info__title {
+  font-family: "Squada One", cursive;
+  font-size: 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px solid blue;
+  margin: 0.5rem;
+}
+.event__header__nav__info__author {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px solid blueviolet;
+  margin: 0.5rem;
+}
+.event__header__nav__buttons {
+  position: relative;
+  right: 0;
+  top: 0;
+  float: right;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-items: center;
+  margin: 0.3rem;
+  border: 2px solid orange;
+}
+.event__header__description {
+  width: 90%;
+  margin: 0.2rem;
+  padding: 0.3rem;
 }
