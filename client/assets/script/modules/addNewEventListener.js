@@ -4,6 +4,7 @@ export const setupAddNewEvent = () => {
 
 
 const openAddNewEvent = () =>{
+    let div = document.getElementById('new-event')
     if (
         window.getComputedStyle(div, null).getPropertyValue("display") == "none"
     ) {

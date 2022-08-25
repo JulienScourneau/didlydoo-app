@@ -50,3 +50,7 @@ input {
   -webkit-appearance: none;
   border-radius: 0;
 }
+
+.new-event {
+  background-color: blue;
+}

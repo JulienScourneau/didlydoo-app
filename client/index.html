@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="assets/style/css/style.css"/>
     
         <title>Didlydoo-app</title>
-        <script defer src="./assets/script/index.js"></script>
+        <script type="module" defer src="./assets/script/index.js"></script>
     </head>
 
 
@@ -28,6 +28,28 @@
                     <button class="header__nav__menu__btn" id="addevent">+</button>
                 </ul>
             </nav>
+
+            <div class="new-event" id="new-event">
+                <section class="new-event">
+                    <div class="new-event__name">
+                        <p class="new-event__name__text">Nom évènement</p>
+                        <input type="text" name="new-name" id="" class="new-event__name__input">
+                    </div>
+                    <div class="new-event__description">
+                        <p class="new-event__description__text">Description</p>
+                        <input type="text" name="new-description" id="" class="new-event__description__input">
+                    </div>
+                    <div class="new-event__author">
+                        <p class="new-event__author__text">Auteur</p>
+                        <input type="text" name="new-author" id="" class="new-event__author__input">
+                    </div>
+                    <div class="new-event__date">
+                        <p class="new-event__date__text"></p>
+                        <input type="date" name="new-date" id="" class="new-event__date__input">
+                    </div>
+                    <input type="button" value="Ajouter" id="add-new-even" class="new-event__button">
+                </section>
+            </div>
 
         </header>
 
@@ -82,25 +104,10 @@
                                     </td>
                             </tr>
                         </tbody>
-
-
-
                     </table>
-
                     </div>
-
                 </article>
-
-
-
-
             </section>
-
         </main>
-
-
     </body>
-
-
-
 </html>
