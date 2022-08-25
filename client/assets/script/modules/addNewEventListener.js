@@ -1,10 +1,11 @@
 export const setupAddNewEvent = () => {
-    document.getElementById("addevent").addEventListener("click", () => openAddNewEvent());
-}
+    document
+        .getElementById("addevent")
+        .addEventListener("click", () => openAddNewEvent());
+};
 
-
-const openAddNewEvent = () =>{
-    let div = document.getElementById('new-event')
+const openAddNewEvent = () => {
+    let div = document.getElementById("new-event");
     if (
         window.getComputedStyle(div, null).getPropertyValue("display") == "none"
     ) {
@@ -12,4 +13,4 @@ const openAddNewEvent = () =>{
     } else {
         div.style.display = "none";
     }
-}
+};
