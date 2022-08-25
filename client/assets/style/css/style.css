@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -128,4 +128,59 @@ input {
   width: 90%;
   margin: 0.2rem;
   padding: 0.3rem;
+}
+
+.header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 10px;
+}
+.header__nav__title {
+  width: 30%;
+  margin-left: 15px;
+  padding: 0px 10px 0px 0px;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+}
+.header__nav__menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  padding: 10px;
+}
+.header__nav__menu__item:hover {
+  border-top: 10px Solid #FC5B3F;
+}
+.header__nav__menu__item:active {
+  border-top: 10px Solid #FC5B3F;
+}
+.header__nav__menu__btn {
+  padding: 7px;
+  letter-spacing: 2px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color: #FC5B3F;
+  border: 1px solid #FC5B3F;
+  font-weight: 700;
+}
+.header__nav__menu__btn:hover {
+  background-color: white;
+  color: #fa846f;
+  border: 1px solid #FC5B3F;
+}
+.header__nav__menu__btn:active {
+  background-color: white;
+  color: #fa846f;
+  border: 1px solid #FC5B3F;
 }
