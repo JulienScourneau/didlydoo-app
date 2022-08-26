@@ -1,5 +1,6 @@
 import { createEvent } from "./createNewEvent.js";
 import { getSelectedDate } from "./getSelectedDate.js";
+import { addEvent } from "./addEvent.js";
 
 export const setupAddNewEvent = () => {
     let dateArray = [];
@@ -10,6 +11,7 @@ export const setupAddNewEvent = () => {
     document.getElementById("add-new-event").addEventListener("click", () => {
         openAddNewEvent();
         console.log(createEvent(dateArray));
+        addEvent(createEvent(dateArray))
     });
 
     document.getElementById("new-date").addEventListener("input", (e) => {

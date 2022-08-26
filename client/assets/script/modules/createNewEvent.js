@@ -12,6 +12,6 @@ const getNewEventInput = (dateArr) => {
         name: inputName,
         description: inputDescription,
         author: inputAuthor,
-        date: dateArray,
+        dates: dateArray,
     };
 };

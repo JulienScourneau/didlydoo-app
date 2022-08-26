@@ -82,5 +82,5 @@ export const displayAllEvents = async () => {
     let displayevents = events.map(function(e) {
         return e
     })
-    console.log(displayevents)
+    console.log("a:" +displayevents)
 }
