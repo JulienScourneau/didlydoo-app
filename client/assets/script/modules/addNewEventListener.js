@@ -1,19 +1,20 @@
-import { getNewEventInput } from "./createNewEvent.js";
+import { createEvent } from "./createNewEvent.js";
 
 export const setupAddNewEvent = () => {
     document
         .getElementById("addevent")
         .addEventListener("click", () => openAddNewEvent());
 
-    document
-        .getElementById("add-new-event")
-        .addEventListener("click", () => getNewEventInput());
+    document.getElementById("add-new-event").addEventListener("click", () => {
+        openAddNewEvent();
+        createEvent();
+    });
 };
 
-export const setupTodayDate = () =>{
-    let dateinput =document.getElementById('new-date')
-    dateinput.valueAsDate = new Date()
-}
+export const setupTodayDate = () => {
+    let dateinput = document.getElementById("new-date");
+    dateinput.valueAsDate = new Date();
+};
 
 const openAddNewEvent = () => {
     let div = document.getElementById("new-event");
