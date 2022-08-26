@@ -16,12 +16,6 @@ export const setupAddNewEvent = () => {
         addNewDate(e.target.value);
     });
 
-    //setupTodayDate("new-date");
-};
-
-const setupTodayDate = (id) => {
-    let dateinput = document.getElementById(id);
-    dateinput.valueAsDate = new Date();
 };
 
 const addNewDate = (value) => {
