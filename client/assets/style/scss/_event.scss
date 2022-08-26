@@ -1,12 +1,12 @@
 .main {
     margin: auto;
-    border: 2px solid black;
 }
 
 .eventsection {
     margin: auto;
-    width: 100vw;
-    border: 2px solid green;
+    width: 90vw;
+    border-bottom: 5px solid black;
+    padding-bottom: 10px;
 }
 
 .event {
@@ -14,7 +14,9 @@
     margin: auto;
     flex-direction: column;
     width: 95%;
-    border: 2px solid yellow;
+
+    font-family: $PrimaryTypeFace;
+    font-weight: 400;
 
     &__header {
         display:flex;
@@ -27,29 +29,27 @@
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
-            border: 2px solid pink;
 
 
             &__info {
                 display: flex;
                 flex-direction: row;
                 align-items: flex-end;
-                border: 2px solid rgb(122, 220, 167);
                 margin: 0.5rem;
                 width: fit-content;
 
 
                 &__title {
-                    font-family: $PrimaryTypeFace;
+                    font-weight: 700;
+                    color: $Red;
                     font-size: 2rem;
                     width:fit-content;
-                    border: 2px solid blue;
                     margin: 0.5rem;
                 };
         
                 &__author {
+                    font-weight: 300;
                     width:fit-content;
-                    border: 2px solid blueviolet;
                     margin: 0.5rem;
         
                 };
@@ -59,12 +59,19 @@
             &__buttons {
                 right: 0;
                 top: 0;
-                float:right;
                 width: fit-content;
                 height:fit-content;
-                align-items: center;
                 margin: 0.3rem;
-                border: 2px solid orange;
+
+                &__btn {
+                    border: 0;
+                }
+                &__btn:hover {
+                    cursor: pointer;
+                    img:hover {
+                        fill: red;
+                    }
+                }
             };
 
         };
