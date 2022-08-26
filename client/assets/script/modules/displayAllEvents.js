@@ -2,66 +2,69 @@ import { ml } from './generateDomcontent.js';
 import { getAllEvents } from "./getAllEvents.js"
 
 
-let eventcontent = ml("article", {class: "event"}, [
-    ml("section", {class: "event__header"}, [
-        ml("nav", {class: "event__header__nav"}, [
-            ml("div", {class: "event__header__nav__info"}, [
-                ml("h2", {class: "event__header__nav__info__title"}, "Title"),
-                ml("h3", {class: "event__header__nav__info__author"}, "Author")
+function displayEvent (event) {
+    return ml("article", {class: "event"}, [
+        ml("section", {class: "event__header"}, [
+            ml("nav", {class: "event__header__nav"}, [
+                ml("div", {class: "event__header__nav__info"}, [
+                    ml("h2", {class: "event__header__nav__info__title"}, event.name),
+                    ml("h3", {class: "event__header__nav__info__author"}, event.author)
+                ]),
+                ml("div", {class: "event__header__nav__buttons"}, [
+                    ml("button", {class: "event__header__nav__buttons__btn", id: "edit"}, "Edit"),
+                    ml("button", {class: "event__header__nav__buttons__btn", id: "delete"}, "Delete"),
+                ]),
             ]),
-            ml("div", {class: "event__header__nav__buttons"}, [
-                ml("button", {class: "event__header__nav__buttons__btn", id: "edit"}, "Edit"),
-                ml("button", {class: "event__header__nav__buttons__btn", id: "delete"}, "Delete"),
-            ]),
+
+            ml("p", {class: "event__header__description"}, event.description)
         ]),
 
-        ml("p", {class: "event__header__description"})
-    ]),
+        ml("section", {class: "event__content"}, [
+            ml("table", {class: "event__content__table"}, [
+                ml("thead", {class: "event__content__table__header"},
+                    ml("tr", {class: "event__content__table__header__row"}, [
+                        ml("th", {scpe:"col"}, "Members"),
+                        ml("th", {scope:"col", class:"event__content__table__date"}, 
+                            ml("p", {class:"date"}, event.dates[0].date)
+                    )]),
+                ),
+        
+                ml("tbody", {class: "event__content__table__data"}, [
+                    ml("tr", {class: "event__content__table__data__row"} [
+                        ml("th", {scpe:"row", class:"event__content__table__attendee"}, event.dates[1].date),
+                        ml("td", {class:"event__content__table__attendee__availability"},
+                        ml("input", {type: "checkbox", type:"checkbox"})
+                        ),
+                        ml("td", {class:"event__content__table__attendee__availability"},
+                        ml("input", {type: "checkbox", type:"checkbox"})
+                        )
+        
+                    ]),
+                    ml("tr", {class: "event__content__table__header__row"}, [
+                        ml("th", {scope:"row", class:"event__content__table__attendee"}),
+                        ml("td", {class:"event__content__table__attendee__availability"},
+                        ml("input", {type: "checkbox", type:"checkbox"})
+                        ),
+                        ml("td", {class:"event__content__table__attendee__availability"},
+                        ml("input", {type: "checkbox", type:"checkbox"})
+                        ),
+        
+                    ]),
+                ]),
+            ]),
 
-]);
+        ]),
+    ])
+}
 
-// let eventtable = ml("section", {class: "event__content"}, [
-//     ml("table", {class: "event__content__table"}, [
-//         ml("thead", {class: "event__content__table__header"},
-//             ml("tr", [
-//                 ml("th", {scpe:"col"}, "Members"),
-//                 ml("th", {scope:"col", class:"event__content__table__date"})
-//             ]),
-//         ),
 
-//         ml("tbody", {class: "event__content__table__data"}, [
-//             ml("tr", [
-//                 ml("th", {scpe:"row", class:"event__content__table__attendee"}, "Julien"),
-//                 ml("td", {class:"event__content__table__attendee__availability"},
-//                 ml("input", {type: "checkbox", type:"checkbox"})
-//                 ),
-//                 ml("td", {class:"event__content__table__attendee__availability"},
-//                 ml("input", {type: "checkbox", type:"checkbox"})
-//                 ),
-
-//             ]),
-//             ml("tr", [
-//                 ml("th", {scpe:"row", class:"event__content__table__attendee"}, "Selim"),
-//                 ml("td", {class:"event__content__table__attendee__availability"},
-//                 ml("input", {type: "checkbox", type:"checkbox"})
-//                 ),
-//                 ml("td", {class:"event__content__table__attendee__availability"},
-//                 ml("input", {type: "checkbox", type:"checkbox"})
-//                 ),
-
-//             ]),
-//         ]),
-//     ]),
-
-// ]);
-
-console.log(eventcontent);
 const allevents = document.querySelector('.eventsection');
-allevents.appendChild(eventcontent);
-// eventcontent.appendChild(eventtable)
 
-export const displayeventBox = () => {
-    console.log(eventcontent) }
+// export const displayeventBox = () => {
+    
+//     allevents.appendChild(eventcontent);
+//     return eventcontent
+//      }
 
 // let eventheader = document.querySelector('.eventheader');
 // let eventbox = document.createelement('.event');
@@ -79,8 +82,8 @@ export const displayeventBox = () => {
 
 export const displayAllEvents = async () => {
     let events = await getAllEvents();
-    let displayevents = events.map(function(e) {
-        return e
+    events.forEach((e) => {
+        allevents.appendChild(displayEvent(e))
+        console.log(e)
     })
-    console.log(displayevents)
 }
