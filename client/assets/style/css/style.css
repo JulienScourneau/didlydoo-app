@@ -175,8 +175,9 @@ input {
 
 .new-event {
   position: absolute;
-  margin: auto;
-  width: 90%;
+  left: 2.5%;
+  right: 2.5%;
+  width: 95%;
   background-color: #FC5B3F;
   color: white;
   font-family: "Poppins", sans-serif;
