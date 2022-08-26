@@ -38,16 +38,12 @@ const addNewDate = (value) => {
     img.addEventListener("click", () => {
         timeContainer.remove();
     });
-    return value
+    return value;
 };
 
 const openAddNewEvent = () => {
     let div = document.getElementById("new-event");
-    if (
-        window.getComputedStyle(div, null).getPropertyValue("display") == "none"
-    ) {
-        div.style.display = "block";
-    } else {
-        div.style.display = "none";
-    }
+    window.getComputedStyle(div, null).getPropertyValue("display") == "none"
+        ? (div.style.display = "block")
+        : (div.style.display = "none");
 };
