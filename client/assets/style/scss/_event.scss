@@ -86,19 +86,18 @@
 
     &__content {
         width: 100%;
-
+        padding-top: 10px;
+        background-color: $Red;
+        color: white;
+        letter-spacing: 1px;
+        padding: 15px;
         &__table{
             width:100%;
-            background-color: aquamarine;
-            
             &__header {
-                border: 1px solid black;
-
                 tr {
-                    border: 1px solid black;
                     height:fit-content;
+                    font-weight: 700;
                     th {
-                        border: 1px solid black;
                         padding: 0.2rem
                     }
                 };
@@ -106,18 +105,15 @@
             };
 
             &__data {
-                border: 1px solid black;
                 tr {
-                    border: 1px solid black;
                     height:fit-content;
+                    font-weight: 700;
                     th {
-                        border: 1px solid black;
                         padding: 0.2rem;
                         width:30%
                         
                     };
                     td {
-                        border: 1px solid black;
                         text-align: center;
                     }
                 };

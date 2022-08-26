@@ -135,40 +135,35 @@ input {
 }
 .event__content {
   width: 100%;
+  padding-top: 10px;
+  background-color: #FC5B3F;
+  color: white;
+  letter-spacing: 1px;
+  padding: 15px;
 }
 .event__content__table {
   width: 100%;
-  background-color: aquamarine;
-}
-.event__content__table__header {
-  border: 1px solid black;
 }
 .event__content__table__header tr {
-  border: 1px solid black;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  font-weight: 700;
 }
 .event__content__table__header tr th {
-  border: 1px solid black;
   padding: 0.2rem;
 }
-.event__content__table__data {
-  border: 1px solid black;
-}
 .event__content__table__data tr {
-  border: 1px solid black;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  font-weight: 700;
 }
 .event__content__table__data tr th {
-  border: 1px solid black;
   padding: 0.2rem;
   width: 30%;
 }
 .event__content__table__data tr td {
-  border: 1px solid black;
   text-align: center;
 }
 
