@@ -1,23 +1,17 @@
-export const createEvent = () => {
-    let event = getNewEventInput();
-    
+export const createEvent = (dateArr) => {
+    let event = getNewEventInput(dateArr);
+    return event
 };
 
-const getNewEventInput = () => {
+const getNewEventInput = (dateArr) => {
     let inputName = document.getElementById("new-name").value;
     let inputDescription = document.getElementById("new-description").value;
     let inputAuthor = document.getElementById("new-author").value;
-    let dateArray = getDateInput();
+    let dateArray = dateArr;
     return {
         name: inputName,
         description: inputDescription,
         author: inputAuthor,
         date: dateArray,
     };
-};
-
-const getDateInput = () => {
-    let dateInput = [];
-    dateInput.push(document.getElementById("new-date").value);
-    return dateInput;
 };
