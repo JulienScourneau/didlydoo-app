@@ -15,7 +15,6 @@
         <script type="module" defer src="./assets/script/index.js"></script>
     </head>
 
-
     <body>
 
         <header class="header">
@@ -44,8 +43,11 @@
                         <input type="text" name="new-author" id="new-author" class="new-event__author__input">
                     </div>
                     <div class="new-event__date">
-                        <p class="new-event__date__text"></p>
+                        <p class="new-event__date__text">Date</p>
                         <input type="date" name="new-date" id="new-date" class="new-event__date__input">
+                        <div class="new-event__date__container" id="new-event__date__container">
+                            <!-- Date container -->
+                        </div>
                     </div>
                     <input type="button" value="Ajouter" id="add-new-event" class="new-event__button">
                 </section>
@@ -118,13 +120,10 @@
                         </table>
 
                     </section>
-
-
-
-                    
-
                 </article>
+
             </section>
+
         </main>
     </body>
 </html>

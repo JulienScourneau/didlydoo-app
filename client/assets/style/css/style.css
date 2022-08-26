@@ -218,6 +218,22 @@ input {
 .new-event .new-event__date__input {
   border: 0;
 }
+.new-event .new-event__date__container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+.new-event .new-event__date__container__date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.new-event .new-event__date__container__date__time {
+  font-size: 14px;
+}
+.new-event .new-event__date__container__date__img {
+  margin-bottom: 3px;
+}
 .new-event .new-event__button {
   border: 0;
   background-color: white;

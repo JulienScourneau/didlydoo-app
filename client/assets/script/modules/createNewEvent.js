@@ -1,3 +1,8 @@
+export const createEvent = () => {
+    let event = getNewEventInput();
+    
+};
+
 const getNewEventInput = () => {
     let inputName = document.getElementById("new-name").value;
     let inputDescription = document.getElementById("new-description").value;
@@ -15,10 +20,4 @@ const getDateInput = () => {
     let dateInput = [];
     dateInput.push(document.getElementById("new-date").value);
     return dateInput;
-};
-
-export const createEvent = () => {
-    let event = getNewEventInput();
-    console.log(event);
-    
 };
