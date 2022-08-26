@@ -9,6 +9,7 @@ export const setupAddNewEvent = () => {
         openAddNewEvent();
         createEvent();
     });
+    setupTodayDate();
 };
 
 export const setupTodayDate = () => {
