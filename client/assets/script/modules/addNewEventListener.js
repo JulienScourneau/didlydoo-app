@@ -1,6 +1,8 @@
 import { createEvent } from "./createNewEvent.js";
 import { getSelectedDate } from "./getSelectedDate.js";
 import { addEvent } from "../db/addEvent.js";
+import { getEditData } from "./editEvent.js"
+import { updateEvent } from "../db/updateEvent.js"
 
 export const setupAddNewEvent = () => {
     let dateArray = [];
@@ -10,8 +12,11 @@ export const setupAddNewEvent = () => {
 
     document.getElementById("add-new-event").addEventListener("click", () => {
         openAddNewEvent();
-        console.log(createEvent(dateArray));
-        addEvent(createEvent(dateArray))
+        if (document.getElementsByClassName('new-event__button')[0].value === 'Ajouter') {
+            addEvent(createEvent(dateArray))
+        } else {
+            getEditData();
+        }
     });
 
     document.getElementById("new-date").addEventListener("input", (e) => {
