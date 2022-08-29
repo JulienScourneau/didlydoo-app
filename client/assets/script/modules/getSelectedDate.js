@@ -1,7 +1,6 @@
 export function getSelectedDate(input) {
     let date = new Date(input);
     date = `${date.getDate()}/${getMonth(date.getMonth())}/${date.getFullYear()}`;
-    console.log(date);
     return date;
 }
 

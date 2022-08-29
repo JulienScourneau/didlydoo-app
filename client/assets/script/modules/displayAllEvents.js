@@ -126,7 +126,6 @@ export const displayAllEvents = async () => {
             if (e.target !== button[0] && e.target !== button[1]) displayOrHideElement(section[1]);
         });
         allevents.appendChild(event);
-        console.log(e);
     });
     //console.log("a:" +displayevents)
 };
