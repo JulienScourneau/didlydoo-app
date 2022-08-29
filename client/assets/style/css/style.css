@@ -59,8 +59,12 @@ input {
 .eventsection {
   margin: auto;
   width: 90vw;
-  border-bottom: 5px solid black;
   padding-bottom: 10px;
+}
+.eventsection article {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid black;
 }
 
 .event {
@@ -81,12 +85,13 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 .event__header__nav__info {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
   margin: 0.5rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -95,7 +100,7 @@ input {
 .event__header__nav__info__title {
   font-weight: 700;
   color: #FC5B3F;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -109,6 +114,9 @@ input {
   margin: 0.5rem;
 }
 .event__header__nav__buttons {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
   right: 0;
   top: 0;
   width: -webkit-fit-content;
@@ -124,9 +132,8 @@ input {
 }
 .event__header__nav__buttons__btn:hover {
   cursor: pointer;
-}
-.event__header__nav__buttons__btn:hover img:hover {
-  fill: red;
+  background-color: #FC5B3F;
+  color: white;
 }
 .event__header__description {
   width: 90%;
@@ -249,9 +256,9 @@ input {
 }
 .header__nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  justify-content: center;
+  width: 95%;
   font-size: 10px;
 }
 .header__nav__title {
@@ -267,7 +274,7 @@ input {
 }
 .header__nav__menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   width: 70%;
   padding: 10px;
