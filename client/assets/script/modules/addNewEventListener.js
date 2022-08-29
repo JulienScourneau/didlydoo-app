@@ -3,6 +3,7 @@ import { getSelectedDate } from "./getSelectedDate.js";
 import { addEvent } from "../db/addEvent.js";
 import { displayOrHideElement } from "./displayOrHideElement.js";
 import { checkInput } from "./checkInput.js";
+import { getEditData } from " ./editEvent.js";
 
 export const setupAddNewEvent = () => {
     let addEventDiv = document.getElementById("new-event");
@@ -14,8 +15,15 @@ export const setupAddNewEvent = () => {
     document.getElementById("add-new-event").addEventListener("click", () => {
         if (checkInput()) {
             displayOrHideElement(addEventDiv);
-            let event = createEvent(dateArray);
-            addEvent(event)
+            if (
+                document.getElementsByClassName("new-event__button")[0]
+                    .value === "Ajouter"
+            ) {
+                let event = createEvent(dateArray);
+                addEvent(event);
+            } else {
+                getEditData();
+            }
         } else {
             console.log("Display error message");
         }
