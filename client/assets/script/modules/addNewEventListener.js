@@ -2,17 +2,23 @@ import { createEvent } from "./createNewEvent.js";
 import { getSelectedDate } from "./getSelectedDate.js";
 import { addEvent } from "../db/addEvent.js";
 import { displayOrHideElement } from "./displayOrHideElement.js";
+import { checkInput } from "./checkInput.js";
 
 export const setupAddNewEvent = () => {
-    let addEventDiv = document.getElementById("new-event")
+    let addEventDiv = document.getElementById("new-event");
     let dateArray = [];
     document
         .getElementById("addevent")
         .addEventListener("click", () => displayOrHideElement(addEventDiv));
 
     document.getElementById("add-new-event").addEventListener("click", () => {
-        displayOrHideElement(addEventDiv)
-        addEvent(createEvent(dateArray))
+        if (checkInput()) {
+            displayOrHideElement(addEventDiv);
+            let event = createEvent(dateArray);
+            addEvent(event)
+        } else {
+            console.log("Display error message");
+        }
     });
 
     document.getElementById("new-date").addEventListener("input", (e) => {
