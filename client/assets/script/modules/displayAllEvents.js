@@ -13,10 +13,10 @@ function displayEvent (event) {
                 ]),
                 ml("div", {class: "event__header__nav__buttons"}, [
                     ml("button", {class: "event__header__nav__buttons__btn", id: "edit", onclick: function(){
-                        eventListener.editEvent();
+                        eventListener.editEvent(event.id);
                     }}, "Edit"),
                     ml("button", {class: "event__header__nav__buttons__btn", id: "delete", onclick: function(){
-                        eventListener.deleteEvent();
+                        eventListener.deleteEvent(event.id);
                     }}, "Delete"),
                 ]),
             ]),
