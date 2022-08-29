@@ -4,5 +4,6 @@ export const setupEventListener = () => {
 
 const openEvent = () => {
     let div = document.getElementsByClassName('event__content')[0];
-    window.getComputedStyle(div, null).getPropertyValue("display") == "none"? div.style.display = "block": div.style.display = "none";
+    console.log("click");
+    //window.getComputedStyle(div, null).getPropertyValue("display") == "none"? div.style.display = "block": div.style.display = "none";
 };

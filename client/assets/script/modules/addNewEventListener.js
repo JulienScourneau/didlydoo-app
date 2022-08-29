@@ -1,6 +1,6 @@
 import { createEvent } from "./createNewEvent.js";
 import { getSelectedDate } from "./getSelectedDate.js";
-import { addEvent } from "./addEvent.js";
+import { addEvent } from "../db/addEvent.js";
 
 export const setupAddNewEvent = () => {
     let dateArray = [];
