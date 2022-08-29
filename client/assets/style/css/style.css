@@ -134,6 +134,7 @@ input {
   padding: 0.3rem;
 }
 .event__content {
+  display: none;
   width: 100%;
   padding-top: 10px;
   background-color: #FC5B3F;
@@ -183,58 +184,57 @@ input {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-}
-.new-event .new-event {
+  display: none;
   padding: 20px;
 }
-.new-event .new-event__name {
+.new-event__name {
   margin-bottom: 15px;
 }
-.new-event .new-event__name__input {
+.new-event__name__input {
   border: 0;
   margin-top: 2px;
   width: 100%;
 }
-.new-event .new-event__description {
+.new-event__description {
   margin-bottom: 15px;
 }
-.new-event .new-event__description__input {
+.new-event__description__input {
   border: 0;
   margin-top: 2px;
   width: 100%;
 }
-.new-event .new-event__author {
+.new-event__author {
   margin-bottom: 15px;
 }
-.new-event .new-event__author__input {
+.new-event__author__input {
   border: 0;
   margin-top: 2px;
   width: 100%;
 }
-.new-event .new-event__date {
+.new-event__date {
   margin-top: 10px;
   margin-bottom: 30px;
 }
-.new-event .new-event__date__input {
+.new-event__date__input {
   border: 0;
 }
-.new-event .new-event__date__container {
+.new-event__date__container {
   display: flex;
   flex-direction: column;
   margin-top: 5px;
 }
-.new-event .new-event__date__container__date {
+.new-event__date__container__date {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.new-event .new-event__date__container__date__time {
+.new-event__date__container__date__time {
   font-size: 14px;
 }
-.new-event .new-event__date__container__date__img {
+.new-event__date__container__date__img {
   margin-bottom: 3px;
 }
-.new-event .new-event__button {
+.new-event__button {
   border: 0;
   background-color: white;
   padding: 10px;

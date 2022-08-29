@@ -1,6 +1,7 @@
 import { ml } from "./generateDomcontent.js";
 import { getAllEvents } from "../db/getAllEvents.js";
 import * as eventListener from "./eventListener.js";
+import {displayOrHideElement} from "./displayOrHideElement.js"
 
 let section = "";
 let content = "";
@@ -122,7 +123,7 @@ export const displayAllEvents = async () => {
         let section = event.querySelectorAll("section");
         section[0].addEventListener("click", (e) => {
             let button = event.querySelectorAll("button");
-            if (e.target !== button[0] && e.target !== button[1]) eventListener.openEvent(section[1]);
+            if (e.target !== button[0] && e.target !== button[1]) displayOrHideElement(section[1]);
         });
         allevents.appendChild(event);
         console.log(e);

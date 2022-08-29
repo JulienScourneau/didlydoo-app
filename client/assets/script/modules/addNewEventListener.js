@@ -1,21 +1,21 @@
 import { createEvent } from "./createNewEvent.js";
 import { getSelectedDate } from "./getSelectedDate.js";
 import { addEvent } from "../db/addEvent.js";
+import { displayOrHideElement } from "./displayOrHideElement.js";
 
 export const setupAddNewEvent = () => {
+    let addEventDiv = document.getElementById("new-event")
     let dateArray = [];
     document
         .getElementById("addevent")
-        .addEventListener("click", () => openAddNewEvent());
+        .addEventListener("click", () => displayOrHideElement(addEventDiv));
 
     document.getElementById("add-new-event").addEventListener("click", () => {
-        openAddNewEvent();
-        console.log(createEvent(dateArray));
+        displayOrHideElement(addEventDiv)
         addEvent(createEvent(dateArray))
     });
 
     document.getElementById("new-date").addEventListener("input", (e) => {
-        console.log("event");
         dateArray.push(addNewDate(e.target.value));
     });
 };
@@ -41,11 +41,4 @@ const addNewDate = (value) => {
         timeContainer.remove();
     });
     return value;
-};
-
-const openAddNewEvent = () => {
-    let div = document.getElementById("new-event");
-    window.getComputedStyle(div, null).getPropertyValue("display") == "none"
-        ? (div.style.display = "block")
-        : (div.style.display = "none");
 };
