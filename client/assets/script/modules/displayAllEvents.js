@@ -55,10 +55,9 @@ function displayEvent (event) {
 
         ]),
     ])
+
+    
 }
-
-
-const allevents = document.querySelector('.eventsection');
 
 // export const displayeventBox = () => {
     
@@ -80,10 +79,30 @@ const allevents = document.querySelector('.eventsection');
 // console.log(map)
 
 
+const allevents = document.querySelector('.eventsection');
+
 export const displayAllEvents = async () => {
     let events = await getAllEvents();
     events.forEach((e) => {
         allevents.appendChild(displayEvent(e))
-        console.log(e)
     })
 }
+
+
+// var jsonData = `{ "rows": [ [ "EzE8xZ31zfC", "R7TPl8q81Ft", "47.0" ], [ "hTUspcBc4Yn", "R7TPl8q81Ft", "50.6" ], [ "EzE8xZ31zfC", "xGojHNSrFAj", "40.0" ], [ "E31SemmmFGb", "xGojHNSrFAj", "74.8" ], [ "hTUspcBc4Yn", "xGojHNSrFAj", "77.0" ], [ "E31SemmmFGb", "R7TPl8q81Ft", "47.0" ] ] }`;
+
+// //Converting JSON string to JS Object
+// var obj = JSON.parse(jsonData);
+// document.getElementById("demo").innerHTML = obj["rows"]
+//   .map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td>`).join("")
+
+/**
+//  * retrieves dates and participants for the event tables
+//  * @param {*} response 
+//  */
+//  export function displayDatesEvent(response) {
+//     const eventbox = document.querySelector(".event");
+//     for (let dates of response[0].dates) {
+//       eventbox.innerHTML = dates.map(date => `<th scope="col" class="event__content__table__date">${date}</th>`).join("");
+//     }
+//   }
