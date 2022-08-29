@@ -1,5 +1,5 @@
 import { ml } from "./generateDomcontent.js";
-import { getAllEvents } from "./getAllEvents.js";
+import { getAllEvents } from "../db/getAllEvents.js";
 import * as eventListener from "./eventListener.js";
 
 let section = "";
