@@ -1,5 +1,6 @@
 import { ml } from './generateDomcontent.js';
 import { getAllEvents } from "./getAllEvents.js"
+import * as eventListener from "./eventListener.js"
 
 
 function displayEvent (event) {
@@ -11,8 +12,12 @@ function displayEvent (event) {
                     ml("h3", {class: "event__header__nav__info__author"}, event.author)
                 ]),
                 ml("div", {class: "event__header__nav__buttons"}, [
-                    ml("button", {class: "event__header__nav__buttons__btn", id: "edit"}, "Edit"),
-                    ml("button", {class: "event__header__nav__buttons__btn", id: "delete"}, "Delete"),
+                    ml("button", {class: "event__header__nav__buttons__btn", id: "edit", onclick: function(){
+                        eventListener.editEvent();
+                    }}, "Edit"),
+                    ml("button", {class: "event__header__nav__buttons__btn", id: "delete", onclick: function(){
+                        eventListener.deleteEvent();
+                    }}, "Delete"),
                 ]),
             ]),
 
@@ -29,28 +34,28 @@ function displayEvent (event) {
                     )]),
                 ),
         
-                ml("tbody", {class: "event__content__table__data"}, [
-                    ml("tr", {class: "event__content__table__data__row"} [
-                        ml("th", {scpe:"row", class:"event__content__table__attendee"}, event.dates[1].date),
-                        ml("td", {class:"event__content__table__attendee__availability"},
-                        ml("input", {type: "checkbox", type:"checkbox"})
-                        ),
-                        ml("td", {class:"event__content__table__attendee__availability"},
-                        ml("input", {type: "checkbox", type:"checkbox"})
-                        )
+                // ml("tbody", {class: "event__content__table__data"}, [
+                //     ml("tr", {class: "event__content__table__data__row"} [
+                //         ml("th", {scpe:"row", class:"event__content__table__attendee"}, event.dates[1].date),
+                //         ml("td", {class:"event__content__table__attendee__availability"},
+                //         ml("input", {type: "checkbox", type:"checkbox"})
+                //         ),
+                //         ml("td", {class:"event__content__table__attendee__availability"},
+                //         ml("input", {type: "checkbox", type:"checkbox"})
+                //         )
         
-                    ]),
-                    ml("tr", {class: "event__content__table__header__row"}, [
-                        ml("th", {scope:"row", class:"event__content__table__attendee"}),
-                        ml("td", {class:"event__content__table__attendee__availability"},
-                        ml("input", {type: "checkbox", type:"checkbox"})
-                        ),
-                        ml("td", {class:"event__content__table__attendee__availability"},
-                        ml("input", {type: "checkbox", type:"checkbox"})
-                        ),
+                //     ]),
+                //     ml("tr", {class: "event__content__table__header__row"}, [
+                //         ml("th", {scope:"row", class:"event__content__table__attendee"}),
+                //         ml("td", {class:"event__content__table__attendee__availability"},
+                //         ml("input", {type: "checkbox", type:"checkbox"})
+                //         ),
+                //         ml("td", {class:"event__content__table__attendee__availability"},
+                //         ml("input", {type: "checkbox", type:"checkbox"})
+                //         ),
         
-                    ]),
-                ]),
+                //     ]),
+                // ]),
             ]),
 
         ]),
@@ -86,4 +91,5 @@ export const displayAllEvents = async () => {
         allevents.appendChild(displayEvent(e))
         console.log(e)
     })
+    //console.log("a:" +displayevents)
 }

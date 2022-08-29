@@ -1,8 +1,12 @@
-export const setupEventListener = () => {
-    document.getElementsByClassName("event__header")[0].addEventListener("click",() => openEvent());
+export const openEvent = () => {
+    console.log("event click");
+    //window.getComputedStyle(div, null).getPropertyValue("display") == "none"? div.style.display = "block": div.style.display = "none";
 };
 
-const openEvent = () => {
-    let div = document.getElementsByClassName('event__content')[0];
-    window.getComputedStyle(div, null).getPropertyValue("display") == "none"? div.style.display = "block": div.style.display = "none";
+export const editEvent = () => {
+    console.log("edit click");
+};
+
+export const deleteEvent = () => {
+    console.log("delete Click");
 };
