@@ -1,5 +1,5 @@
 import { setupAddNewEvent } from "./modules/addNewEventListener.js";
-import { getAllEvents } from "./modules/getAllEvents.js";
+import { getAllEvents } from "./db/getAllEvents.js";
 // import { displayeventBox } from "./modules/displayAllEvents.js";
 import { displayAllEvents } from "./modules/displayAllEvents.js";
 getAllEvents();

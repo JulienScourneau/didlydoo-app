@@ -1,4 +1,4 @@
-export const addEvent = async (attendees,id) => {
+export const addAttendess = async (attendees,id) => {
     try {
         const response = await fetch(`http://localhost:3000/api/events/${id}/attend`, {
             method: "POST",
