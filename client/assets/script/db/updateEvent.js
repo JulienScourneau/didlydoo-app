@@ -1,3 +1,5 @@
+
+
 export const updateEvent = async (id,event) => {
     try {
         const response = await fetch(`http://localhost:3000/api/events/${id}`, {
