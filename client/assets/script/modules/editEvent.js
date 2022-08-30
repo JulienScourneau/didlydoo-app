@@ -5,50 +5,54 @@ import { addNewDate } from "./addNewEventListener.js";
 
 import { getSelectedDate } from "./getSelectedDate.js";
 
-
 export const editEvent = (id) => {
-  let event = getEvent(id);
-  event.then((json) => {
-    console.log(json);
-    displayEditEventINtoAddEvent(json);
-    modifButton();
-    getEditId(json);
-  });
+    let event = getEvent(id);
+    event.then((json) => {
+        console.log(json);
+        displayEditEventINtoAddEvent(json);
+        modifButton();
+        getEditId(json);
+    });
 };
 
 function displayEditEventINtoAddEvent(json) {
-  let div = document.getElementById("new-event");
-  div.style.display = "block";
+    let div = document.getElementById("new-event");
+    div.style.display = "block";
 
-  document.getElementById("new-name").value = json.name;
-  document.getElementById("new-description").value = json.description;
-  document.getElementById("new-author").value = json.author;
-  for (let element of json.dates) {
-    let div = document.getElementsByClassName('new-event__date__container')[0]
-    let date = document.createElement('div');
-    div.appendChild(date)
-    date.innerHTML = getSelectedDate(element.date);
-    date.className = 'new-event__date__container__date'
-  }
+    document.getElementById("new-name").value = json.name;
+    document.getElementById("new-description").value = json.description;
+    document.getElementById("new-author").value = json.author;
+    document.getElementById("new-date").valueAsDate = new Date(
+        json.dates[0].date
+    );
+
+    for (let element of json.dates) {
+        let div = document.getElementsByClassName(
+            "new-event__date__container"
+        )[0];
+        let date = document.createElement("div");
+        div.appendChild(date);
+        date.innerHTML = getSelectedDate(element.date);
+        date.className = "new-event__date__container__date";
+    }
 }
 
 function modifButton() {
-  document.getElementById("add-new-event").value = "Editer";
-  document.getElementById("add-new-event").id = "edit-new-event";
+    document.getElementById("add-new-event").value = "Editer";
 }
 
 let id = "";
 
 function getEditId(json) {
-  id = json.id;
+    id = json.id;
 }
 
 export function getEditData() {
-  let object = {
-    name: document.getElementById("new-name").value,
-    description: document.getElementById("new-description").value,
-    author: document.getElementById("new-author").value,
-  };
+    let object = {
+        name: document.getElementById("new-name").value,
+        description: document.getElementById("new-description").value,
+        author: document.getElementById("new-author").value,
+    };
 
-  updateEvent(id, object);
+    updateEvent(id, object);
 }
