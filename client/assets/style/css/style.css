@@ -292,6 +292,7 @@ input {
   background-color: #FC5B3F;
   border: 1px solid #FC5B3F;
   font-weight: 700;
+  border-radius: 20px;
 }
 .header__nav__menu__btn:hover {
   background-color: white;
@@ -306,4 +307,4 @@ input {
 
 body {
   width: 100%;
-}/*# sourceMappingURL=style.css.map */
+}
