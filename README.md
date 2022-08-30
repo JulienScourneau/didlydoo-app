@@ -3,7 +3,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-blue)
 ![CSS3](https://img.shields.io/badge/CSS3-red)
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow)
-![NodeJs](https://img.shields.io/badge/NodeJs-yellow)
+![NodeJs](https://img.shields.io/badge/NodeJs-green)
 
 # GODEHORS
 
