@@ -104,14 +104,12 @@ input {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0.5rem;
 }
 .event__header__nav__info__author {
   font-weight: 300;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0.5rem;
 }
 .event__header__nav__buttons {
   display: flex;
@@ -303,4 +301,4 @@ input {
   background-color: white;
   color: #fa846f;
   border: 1px solid #FC5B3F;
-}
+}/*# sourceMappingURL=style.css.map */
