@@ -19,7 +19,7 @@ Nous avons permis aux utilisateurs de supprimer ou de modifier leurs événement
  via cette commande dans le terminal :
 'node backend/server/index.mjs'.
 
-# About Team :
+# Team :
 - Selim Elyahyioui[Selim Elyahyioui](https://github.com/selim9106)
 - Julien Scourneau[Julien Scourneau](https://github.com/JulienScourneau)
 - Titouan Moussiaux[Titouan Moussiaux](https://github.com/Moustito)
