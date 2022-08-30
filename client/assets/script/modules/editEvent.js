@@ -1,8 +1,5 @@
 import { getEvent } from "../db/getEvent.js";
 import { updateEvent } from "../db/updateEvent.js";
-
-import { addNewDate } from "./addNewEventListener.js";
-
 import { getSelectedDate } from "./getSelectedDate.js";
 
 export const editEvent = (id) => {
