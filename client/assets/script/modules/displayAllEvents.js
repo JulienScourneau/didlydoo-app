@@ -1,6 +1,6 @@
 import { ml } from './generateDomcontent.js';
-import { getAllEvents } from "./getAllEvents.js"
-
+import { getAllEvents } from "./getAllEvents.js";
+import { getDayandMonth } from "./getSelectedDate.js";
 
 function displayEvent (event) {
     return ml("article", {class: "event"}, [
@@ -18,52 +18,106 @@ function displayEvent (event) {
 
             ml("p", {class: "event__header__description"}, event.description)
         ]),
-
-        ml("section", {class: "event__content"}, [
-            ml("table", {class: "event__content__table"}, [
-                ml("thead", {class: "event__content__table__header"},
-                    ml("tr", {class: "event__content__table__header__row"}, [
-                        ml("th", {scpe:"col"}, "Members"),
-                        ml("th", {scope:"col", class:"event__content__table__date"}, 
-                            ml("p", {class:"date"}, event.dates[0].date)
-                    )]),
-                ),
-        
-                ml("tbody", {class: "event__content__table__data"}, [
-                    ml("tr", {class: "event__content__table__data__row"} [
-                        ml("th", {scpe:"row", class:"event__content__table__attendee"}, event.dates[1].date),
-                        ml("td", {class:"event__content__table__attendee__availability"},
-                        ml("input", {type: "checkbox", type:"checkbox"})
-                        ),
-                        ml("td", {class:"event__content__table__attendee__availability"},
-                        ml("input", {type: "checkbox", type:"checkbox"})
-                        )
-        
-                    ]),
-                    ml("tr", {class: "event__content__table__header__row"}, [
-                        ml("th", {scope:"row", class:"event__content__table__attendee"}),
-                        ml("td", {class:"event__content__table__attendee__availability"},
-                        ml("input", {type: "checkbox", type:"checkbox"})
-                        ),
-                        ml("td", {class:"event__content__table__attendee__availability"},
-                        ml("input", {type: "checkbox", type:"checkbox"})
-                        ),
-        
-                    ]),
-                ]),
-            ]),
-
-        ]),
     ])
 
-    
 }
 
-// export const displayeventBox = () => {
+const allevents = document.querySelector('.eventsection');
+
+export const displayAllEvents = async () => {
+    let events = await getAllEvents();
+    events.forEach((e) => {
+
+        let eventbox = displayEvent(e);
+        allevents.appendChild(eventbox);
+        eventbox.innerHTML += createEventTable(e);
+        let tableheader = eventbox.querySelector('.event__content__table__header__row');
+        addColumn(e, tableheader);
+        
+        // eventbox.appendChild(eventtable)
+    });
+
+};
+
+function createEventTable(event) {
     
-//     allevents.appendChild(eventcontent);
-//     return eventcontent
-//      }
+    let tabletemplate = 
+    `<section class = "event__content">
+        <table class="event__content__table">
+            <thead class="event__content__table__header">
+                <tr class="event__content__table__header__row">
+                    <th scope="col" class="event__content__table__header__col event__content__table__header__col--members">Members</th>
+                </tr>
+                
+            </thead>
+            <tbody class= "event__content__table__data">
+            </tbody>
+
+        </table>
+    </section>`;
+    
+    return tabletemplate
+
+}
+
+function addColumn(event, table) {
+    let eventdates = event.dates;
+    
+    eventdates.map((dates)=> 
+        table.innerHTML += `<th scope="col"class="vent__content__table__header__col event__content__table__header__col--date">${getDayandMonth(dates.date)}</th>
+        `);
+        
+}
+
+
+
+// eventdates.map((e=>
+//     output += 
+//     `<th scope="col"class="vent__content__table__header__col event__content__table__header__col--date"><p>${e.date}</p></th>
+//                `));
+
+// function createColumn(date) {
+//     return ml("th", {scope:"col", class:"event__content__table__header__col event__content__table__header__col--date"}, date)
+// }
+
+// return ml("section", {class: "event__content"}, [
+//     ml("table", {class: "event__content__table"}, [
+//         ml("thead", {class: "event__content__table__header"},
+//             ml("tr", {class: "event__content__table__header__row"}, [
+//                 ml("th", {scope:"col", class:"event__content__table__header__col event__content__table__header__col--members"}, "Members"),
+
+                // INPUT each date one column
+//                 (eventdates.map((date) => {
+//                     return createColumn(date.date)}))
+//             ]),
+//         ),
+
+//         ml("tbody", {class: "event__content__table__data"}, [
+//             ml("tr", {class: "event__content__table__data__row"} [
+//                 ml("th", {scope:"row", class:"event__content__table__attendee"}, event.dates[1].date),
+//                 ml("td", {class:"event__content__table__attendee__availability"},
+//                 ml("input", {type: "checkbox", type:"checkbox"})
+//                 ),
+//                 ml("td", {class:"event__content__table__attendee__availability"},
+//                 ml("input", {type: "checkbox", type:"checkbox"})
+//                 )
+
+//             ]),
+//             ml("tr", {class: "event__content__table__header__row"}, [
+//                 ml("th", {scope:"row", class:"event__content__table__attendee"}),
+//                 ml("td", {class:"event__content__table__attendee__availability"},
+//                 ml("input", {type: "checkbox", type:"checkbox"})
+//                 ),
+//                 ml("td", {class:"event__content__table__attendee__availability"},
+//                 ml("input", {type: "checkbox", type:"checkbox"})
+//                 ),
+
+//             ]),
+//         ]),
+//     ]),
+
+// ])
+
 
 // let eventheader = document.querySelector('.eventheader');
 // let eventbox = document.createelement('.event');
@@ -79,30 +133,3 @@ function displayEvent (event) {
 // console.log(map)
 
 
-const allevents = document.querySelector('.eventsection');
-
-export const displayAllEvents = async () => {
-    let events = await getAllEvents();
-    events.forEach((e) => {
-        allevents.appendChild(displayEvent(e))
-    })
-}
-
-
-// var jsonData = `{ "rows": [ [ "EzE8xZ31zfC", "R7TPl8q81Ft", "47.0" ], [ "hTUspcBc4Yn", "R7TPl8q81Ft", "50.6" ], [ "EzE8xZ31zfC", "xGojHNSrFAj", "40.0" ], [ "E31SemmmFGb", "xGojHNSrFAj", "74.8" ], [ "hTUspcBc4Yn", "xGojHNSrFAj", "77.0" ], [ "E31SemmmFGb", "R7TPl8q81Ft", "47.0" ] ] }`;
-
-// //Converting JSON string to JS Object
-// var obj = JSON.parse(jsonData);
-// document.getElementById("demo").innerHTML = obj["rows"]
-//   .map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td>`).join("")
-
-/**
-//  * retrieves dates and participants for the event tables
-//  * @param {*} response 
-//  */
-//  export function displayDatesEvent(response) {
-//     const eventbox = document.querySelector(".event");
-//     for (let dates of response[0].dates) {
-//       eventbox.innerHTML = dates.map(date => `<th scope="col" class="event__content__table__date">${date}</th>`).join("");
-//     }
-//   }
