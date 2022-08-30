@@ -146,6 +146,7 @@ input {
   color: white;
   letter-spacing: 1px;
   padding: 15px;
+  overflow-x: scroll;
 }
 .event__content__table {
   width: 100%;
@@ -157,7 +158,7 @@ input {
   font-weight: 700;
 }
 .event__content__table__header tr th {
-  padding: 0.2rem;
+  padding: 10px;
 }
 .event__content__table__data tr {
   height: -webkit-fit-content;
@@ -267,7 +268,7 @@ input {
   text-align: center;
   text-transform: uppercase;
   color: black;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 700;
 }
 .header__nav__menu {
@@ -301,4 +302,8 @@ input {
   background-color: white;
   color: #fa846f;
   border: 1px solid #FC5B3F;
+}
+
+body {
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
