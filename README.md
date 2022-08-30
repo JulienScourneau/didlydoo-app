@@ -23,6 +23,6 @@ Nous avons permis aux utilisateurs de supprimer ou de modifier leurs événement
 - [Julien Scourneau](https://github.com/JulienScourneau)
 - [Titouan Moussiaux](https://github.com/Moustito)
 
-[Consignes Becode](https://github.com/becodeorg/CRL-Wilson-1/tree/master/1.TRAIL/2.The-Hill/Projects/3.Didlydoo)
+Lien : [Consignes Becode](https://github.com/becodeorg/CRL-Wilson-1/tree/master/1.TRAIL/2.The-Hill/Projects/3.Didlydoo)
 
-[didlydoo-app](https://julienscourneau.github.io/didlydoo-app/)
+Lien vers l'application : [GODEHORS](https://julienscourneau.github.io/didlydoo-app/)
