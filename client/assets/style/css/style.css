@@ -262,7 +262,6 @@ input {
 }
 .header__nav__title {
   width: 30%;
-  margin-left: 15px;
   padding: 0px 10px 0px 0px;
   align-items: center;
   text-align: center;
@@ -292,16 +291,13 @@ input {
   background-color: #FC5B3F;
   border: 1px solid #FC5B3F;
   font-weight: 700;
+  border-radius: 20px;
 }
 .header__nav__menu__btn:hover {
   background-color: white;
   color: #fa846f;
   border: 1px solid #FC5B3F;
-}
-.header__nav__menu__btn:active {
-  background-color: white;
-  color: #fa846f;
-  border: 1px solid #FC5B3F;
+  cursor: pointer;
 }
 
 body {

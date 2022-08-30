@@ -11,7 +11,6 @@
 
         &__title {
             width: 30%;
-            margin-left: 15px;
             padding: 0px 10px 0px 0px;
             align-items: center;
 
@@ -44,16 +43,13 @@
                 background-color: $Red;
                 border: 1px solid $Red;
                 font-weight: 700;
+                border-radius: 20px;
             }
             &__btn:hover{
                 background-color: white;
                 color: $RedHover;
                 border: 1px solid $Red;
-            }
-            &__btn:active {
-                background-color: white;
-                color: $RedHover;
-                border: 1px solid $Red;
+                cursor: pointer;
             }
         }
     }
