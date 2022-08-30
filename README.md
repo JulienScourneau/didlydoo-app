@@ -5,17 +5,24 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow)
 ![NodeJs](https://img.shields.io/badge/NodeJs-yellow)
 
-GODEHORS.
+##### GODEHORS
 
-# description
-expliquer le projet
-expliquer qu'on a acces a un serveur, il n'est pas créer
-comment lenacer le projet en local
+# Description
+GODEHORS est une application de planification d'événement. 
+Les utilisateurs peuvent créer des événements en laissant la possibilité aux participants de choisir entre plusieurs dates pour se mettre d'accord.
+
+Nous avons permis aux utilisateurs de supprimer ou de modifier leurs événements si une annulation ou un changement serai arrivé. Sur ce projet les événement son enregistré dans un serveur dont nous avons accès, il n'est pas créé pour l'application.
+
+# Comment lancer le projet en local
+- Il vous faudra au préalable installer NodeJs
+- Ensuite il faudra lancer "index.mjs" pour se connecter au serveur,
+ via cette commande dans le terminal :
+'node backend/server/index.mjs'.
 
 # About Team :
-- Selim Elyahyioui
-- Julien Scourneau
-- Titouan Moussiaux
+- Selim Elyahyioui[Selim Elyahyioui](https://github.com/selim9106)
+- Julien Scourneau[Julien Scourneau](https://github.com/JulienScourneau)
+- Titouan Moussiaux[Titouan Moussiaux](https://github.com/Moustito)
 
 [Consignes Becode](https://github.com/becodeorg/CRL-Wilson-1/tree/master/1.TRAIL/2.The-Hill/Projects/3.Didlydoo)
 
