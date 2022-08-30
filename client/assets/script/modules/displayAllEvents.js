@@ -3,6 +3,7 @@ import { getAllEvents } from "../db/getAllEvents.js";
 import { getDayandMonth } from "./getSelectedDate.js";
 import * as eventListener from "./eventListener.js";
 import {displayOrHideElement} from "./displayOrHideElement.js"
+import { displayAvailability } from "./checkbox.js";
 
 function displayEvent (event) {
     return ml("article", {class: "event"}, [
@@ -53,9 +54,12 @@ export const displayAllEvents = async () => {
         allevents.appendChild(eventbox);
         eventbox.innerHTML += createEventTable(e);
         let tableheader = eventbox.querySelector('.event__content__table__header__row');
+        let tablebody = eventbox.querySelector('tbody');
         addColumn(e, tableheader);
+        addRow(e, tablebody);
+        addCell(e,tablebody);
+        displayAvailability();
         let section = eventbox.querySelectorAll("section");
-        console.log(section)
 
         section[0].addEventListener("click", (e) => {
             let button = eventbox.querySelectorAll("button");
@@ -91,12 +95,57 @@ function createEventTable(event) {
 
 function addColumn(event, table) {
     let eventdates = event.dates;
-    
     eventdates.map((dates)=> 
         table.innerHTML += `<th scope="col"class="vent__content__table__header__col event__content__table__header__col--date">${getDayandMonth(dates.date)}</th>
         `);
-        
+
 }
+
+function addRow(event, table) {
+    let eventdates = event.dates;
+    console.log(eventdates)
+    let attendees = eventdates[0].attendees;
+    
+    attendees.map((attendees)=> 
+        table.innerHTML += `
+                            <tr class="event__content__table__data__row">
+                                <th scope="col" class="event__content__table__attendee">
+                                ${attendees.name}
+                                </th>
+                                
+                            </tr>
+                            `
+    );
+}
+
+function addCell(event, table) {
+    let eventdates = event.dates;
+    let attendees = eventdates[0].attendees;
+    let tablerow = table.querySelectorAll('.event__content__table__data__row');
+    eventdates.forEach((dt)=> {
+        let i=0;
+        for (let attendee of dt.attendees) {
+            tablerow[i].innerHTML += `<td class="event__content__table__attendee__availability"><input type="checkbox" class="checkbox" value ="${attendee.available}"></td>`
+            i++;
+        }
+    }) 
+};
+
+
+
+// function myFunction() {
+//     var row = document.getElementById("myRow");
+//     var x = row.insertCell(0);
+//     x.innerHTML = "New cell";
+// ml("tbody", {class: "event__content__table__data"}, [
+    //             ml("tr", {class: "event__content__table__data__row"} [
+    //                 ml("th", {scope:"row", class:"event__content__table__attendee"}, event.dates[1].date),
+    //                 ml("td", {class:"event__content__table__attendee__availability"},
+    //                 ml("input", {type: "checkbox", type:"checkbox"})
+    //                 ),
+    //                 ml("td", {class:"event__content__table__attendee__availability"},
+    //                 ml("input", {type: "checkbox", type:"checkbox"})
+    //                 )
 
 
 
