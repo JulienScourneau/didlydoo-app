@@ -16,10 +16,10 @@ export const setupAddNewEvent = () => {
     document.getElementById("add-new-event").addEventListener("click", () => {
         if (checkInput.checkInput()) {
             displayOrHideElement(document.getElementById("new-event"));
-            if (document.getElementById("add-new-event").value === "Ajouter") {
+            if (document.getElementById("add-new-event").value == "Ajouter") {
                 filterDateList(dateArray);
                 let event = createEvent(dateArray);
-                //addEvent(event);
+                addEvent(event);
             } else {
                 getEditData();
             }
