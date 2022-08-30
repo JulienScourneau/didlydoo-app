@@ -1,6 +1,8 @@
 import { ml } from './generateDomcontent.js';
 import { getAllEvents } from "./getAllEvents.js";
 import { getDayandMonth } from "./getSelectedDate.js";
+import * as eventListener from "./eventListener.js";
+import {displayOrHideElement} from "./displayOrHideElement.js"
 
 function displayEvent (event) {
     return ml("article", {class: "event"}, [
@@ -10,13 +12,33 @@ function displayEvent (event) {
                     ml("h2", {class: "event__header__nav__info__title"}, event.name),
                     ml("h3", {class: "event__header__nav__info__author"}, event.author)
                 ]),
-                ml("div", {class: "event__header__nav__buttons"}, [
-                    ml("button", {class: "event__header__nav__buttons__btn", id: "edit"}, "Edit"),
-                    ml("button", {class: "event__header__nav__buttons__btn", id: "delete"}, "Delete"),
+                ml("div", { class: "event__header__nav__buttons" }, [
+                    ml(
+                        "button",
+                        {
+                            class: "event__header__nav__buttons__btn",
+                            id: "edit",
+                            onclick: function () {
+                                eventListener.editEvent(event.id);
+                            },
+                        },
+                        "Edit"
+                    ),
+                    ml(
+                        "button",
+                        {
+                            class: "event__header__nav__buttons__btn",
+                            id: "delete",
+                            onclick: function () {
+                                eventListener.deleteEvent(event.id);
+                            },
+                        },
+                        "Delete"
+                    ),
                 ]),
             ]),
 
-            ml("p", {class: "event__header__description"}, event.description)
+            ml("p", { class: "event__header__description" }, event.description),
         ]),
     ])
 
@@ -27,8 +49,12 @@ const allevents = document.querySelector('.eventsection');
 export const displayAllEvents = async () => {
     let events = await getAllEvents();
     events.forEach((e) => {
-
         let eventbox = displayEvent(e);
+        let section = eventbox.querySelectorAll("section");
+        section[0].addEventListener("click", (e) => {
+            let button = eventbox.querySelectorAll("button");
+            if (e.target !== button[0] && e.target !== button[1]) displayOrHideElement(section[1]);
+        });
         allevents.appendChild(eventbox);
         eventbox.innerHTML += createEventTable(e);
         let tableheader = eventbox.querySelector('.event__content__table__header__row');
@@ -38,6 +64,7 @@ export const displayAllEvents = async () => {
     });
 
 };
+
 
 function createEventTable(event) {
     
@@ -131,5 +158,4 @@ function addColumn(event, table) {
 // import data from "../../../../backend/server/db/db.json" assert {type: 'json'};
 // const map = new Map(Object.entries(JSON.parse(data)));
 // console.log(map)
-
 

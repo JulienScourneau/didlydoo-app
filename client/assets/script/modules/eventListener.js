@@ -1,8 +1,17 @@
-export const setupEventListener = () => {
-    document.getElementsByClassName("event__header")[0].addEventListener("click",() => openEvent());
+import * as removeEvent from "../db/deleteEvent.js";
+import * as updateEvent from "./editEvent.js";
+export const openEvent = (div) => {
+    window.getComputedStyle(div, null).getPropertyValue("display") == "none"
+        ? (div.style.display = "block")
+        : (div.style.display = "none");
 };
 
-const openEvent = () => {
-    let div = document.getElementsByClassName('event__content')[0];
-    window.getComputedStyle(div, null).getPropertyValue("display") == "none"? div.style.display = "block": div.style.display = "none";
+export const editEvent = (id) => {
+    updateEvent.editEvent(id)
+    console.log("edit");
+};
+
+export const deleteEvent = (id) => {
+    console.log(id);
+    removeEvent.deleteEvent(id);
 };
