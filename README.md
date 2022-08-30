@@ -5,7 +5,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow)
 ![NodeJs](https://img.shields.io/badge/NodeJs-green)
 
-# GODEHORS
+# GODEHORS.
 
 ### Description
 GODEHORS est une application de planification d'événement. 
