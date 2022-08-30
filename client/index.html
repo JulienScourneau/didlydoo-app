@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Selim Elyahyioui, Titouan Moussiaux, Julien Scourneau"/>
+        <meta name="description" content="Events planner collaborative tool" />
+        <meta name="keywords" content="html, css, figma, sass, scss, front-end, webdesign, javascript, planner,events, asynchrone, json, nodejs, API"/>
+        <meta name="generator" content="Visual Studio Code" />
+    
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/style/css/style.css"/>
+    
+        <title>Didlydoo-app</title>
+        <script type="module" defer src="./assets/script/index.js"></script>
+    </head>
+
+    <body>
+
+        <header class="header">
+            <nav class ="header__nav">
+                <h1 class ="header__nav__title">GODEHORS.</h1>
+                <ul class="header__nav__menu">
+                    <!-- <li class="header__nav__menu__item">Home</li>
+                    <li class="header__nav__menu__item">Events</li>
+                    <li class="header__nav__menu__item">Settings</li> -->
+                    <button class="header__nav__menu__btn" id="addevent">New Event</button>
+                </ul>
+            </nav>
+
+            <div class="new-event" id="new-event">
+                    <div class="new-event__name">
+                        <p class="new-event__name__text">Nom</p>
+                        <input type="text" name="new-name" id="new-name" class="new-event__name__input" required>
+                    </div>
+                    <div class="new-event__description">
+                        <p class="new-event__description__text">Description</p>
+                        <input type="text" name="new-description" id="new-description" class="new-event__description__input">
+                    </div>
+                    <div class="new-event__author">
+                        <p class="new-event__author__text">Auteur</p>
+                        <input type="text" name="new-author" id="new-author" class="new-event__author__input" required>
+                    </div>
+                    <div class="new-event__date">
+                        <p class="new-event__date__text">Date</p>
+                        <input type="date" name="new-date" id="new-date" class="new-event__date__input" required>
+                        <div class="new-event__date__container" id="new-event__date__container">
+                            <!-- Date container -->
+                        </div>
+                    </div>
+                    <input type="button" value="Ajouter" id="add-new-event" class="new-event__button">
+            </div>
+
+        </header>
+        <main class="main">
+
+            <section class="eventsection">
+
+            </section>
+
+        </main>
+    </body>
+</html>
