@@ -1,6 +1,6 @@
 import { createEvent } from "./createNewEvent.js";
 import { getSelectedDate } from "./getSelectedDate.js";
-import { addEvent } from "../db/addEvent.js";
+import { addEvent } from "../db/addgitEvent.js";
 import { displayOrHideElement } from "./displayOrHideElement.js";
 import * as checkInput from "./checkInput.js";
 import { getEditData } from "./editEvent.js";
