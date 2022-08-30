@@ -1,32 +1,4 @@
-[
-  {
-    "id": "4b06d08d6c3c",
-    "name": "Gros Concert",
-    "author": "Titouan",
-    "description": "musique triste et amusante car la vie est triste et amusante",
-    "dates": [
-      "2022-09-02"
-    ],
-    "created_at": "2022-08-30T12:18:46.583Z",
-    "num_modification": 0,
-    "last_modification": "2022-08-30T12:18:46.583Z",
-    "attendees": []
-  },
-  {
-    "id": "46c5425b5296",
-    "name": "Manger un gros burger",
-    "author": "Julien et Titou",
-    "description": "On va manger un gros tacos a la pause de midi parce qu'on aime le gras",
-    "dates": [
-      "2022-08-30",
-      "2022-08-31",
-      "2022-08-30"
-    ],
-    "created_at": "2022-08-29T13:39:30.051Z",
-    "num_modification": 1,
-    "last_modification": "2022-08-30T12:18:12.664Z",
-    "attendees": []
-  },
+[   
   {
     "id": "f5b6564b5dc4",
     "name": "My sweet 16",
