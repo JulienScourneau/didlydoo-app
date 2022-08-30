@@ -1,6 +1,10 @@
 import { getEvent } from "../db/getEvent.js";
 import { updateEvent } from "../db/updateEvent.js";
+
 import { addNewDate } from "./addNewEventListener.js";
+
+import { getSelectedDate } from "./getSelectedDate.js";
+
 
 export const editEvent = (id) => {
   let event = getEvent(id);
@@ -20,7 +24,11 @@ function displayEditEventINtoAddEvent(json) {
   document.getElementById("new-description").value = json.description;
   document.getElementById("new-author").value = json.author;
   for (let element of json.dates) {
-    addNewDate(element.date);
+    let div = document.getElementsByClassName('new-event__date__container')[0]
+    let date = document.createElement('div');
+    div.appendChild(date)
+    date.innerHTML = getSelectedDate(element.date);
+    date.className = 'new-event__date__container__date'
   }
 }
 

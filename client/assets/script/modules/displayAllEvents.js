@@ -1,10 +1,9 @@
 import { ml } from "./generateDomcontent.js";
 import { getAllEvents } from "../db/getAllEvents.js";
+import { getDayandMonth } from "./getSelectedDate.js";
 import * as eventListener from "./eventListener.js";
-import {displayOrHideElement} from "./displayOrHideElement.js"
+import { displayOrHideElement } from "./displayOrHideElement.js";
 
-let section = "";
-let content = "";
 function displayEvent(event) {
     return ml("article", { class: "event" }, [
         ml("section", { class: "event__header" }, [
@@ -38,9 +37,6 @@ function displayEvent(event) {
                         {
                             class: "event__header__nav__buttons__btn",
                             id: "delete",
-                            onclick: function () {
-                                eventListener.deleteEvent(event.id);
-                            },
                         },
                         "Delete"
                     ),
@@ -49,59 +45,112 @@ function displayEvent(event) {
 
             ml("p", { class: "event__header__description" }, event.description),
         ]),
-
-        ml("section", { class: "event__content" }, [
-            ml("table", { class: "event__content__table" }, [
-                ml(
-                    "thead",
-                    { class: "event__content__table__header" },
-                    ml("tr", { class: "event__content__table__header__row" }, [
-                        ml("th", { scpe: "col" }, "Members"),
-                        ml(
-                            "th",
-                            {
-                                scope: "col",
-                                class: "event__content__table__date",
-                            },
-                            ml("p", { class: "date" }, event.dates[0].date)
-                        ),
-                    ])
-                ),
-
-                // ml("tbody", {class: "event__content__table__data"}, [
-                //     ml("tr", {class: "event__content__table__data__row"} [
-                //         ml("th", {scpe:"row", class:"event__content__table__attendee"}, event.dates[1].date),
-                //         ml("td", {class:"event__content__table__attendee__availability"},
-                //         ml("input", {type: "checkbox", type:"checkbox"})
-                //         ),
-                //         ml("td", {class:"event__content__table__attendee__availability"},
-                //         ml("input", {type: "checkbox", type:"checkbox"})
-                //         )
-
-                //     ]),
-                //     ml("tr", {class: "event__content__table__header__row"}, [
-                //         ml("th", {scope:"row", class:"event__content__table__attendee"}),
-                //         ml("td", {class:"event__content__table__attendee__availability"},
-                //         ml("input", {type: "checkbox", type:"checkbox"})
-                //         ),
-                //         ml("td", {class:"event__content__table__attendee__availability"},
-                //         ml("input", {type: "checkbox", type:"checkbox"})
-                //         ),
-
-                //     ]),
-                // ]),
-            ]),
-        ]),
     ]);
 }
 
 const allevents = document.querySelector(".eventsection");
 
-// export const displayeventBox = () => {
+export const displayAllEvents = async () => {
+    let events = await getAllEvents();
+    events.forEach((e) => {
+        let eventbox = displayEvent(e);
 
-//     allevents.appendChild(eventcontent);
-//     return eventcontent
-//      }
+        allevents.appendChild(eventbox);
+        eventbox.innerHTML += createEventTable(e);
+        let tableheader = eventbox.querySelector(
+            ".event__content__table__header__row"
+        );
+        addColumn(e, tableheader);
+        let section = eventbox.querySelectorAll("section");
+        section[0].addEventListener("click", (e) => {
+            let button = eventbox.querySelectorAll("button");
+            if (e.target !== button[0] && e.target !== button[1])
+                displayOrHideElement(section[1]);
+        });
+        let button = eventbox.querySelectorAll("button");
+        console.log(button);
+        button[0].addEventListener("click", () => eventListener.editEvent(e.id));
+        button[1].addEventListener("click", () => eventListener.deleteEvent(e.id));
+
+    });
+};
+
+function createEventTable(event) {
+    let tabletemplate = `<section class = "event__content">
+        <table class="event__content__table">
+            <thead class="event__content__table__header">
+                <tr class="event__content__table__header__row">
+                    <th scope="col" class="event__content__table__header__col event__content__table__header__col--members">Members</th>
+                </tr>
+                
+            </thead>
+            <tbody class= "event__content__table__data">
+            </tbody>
+
+        </table>
+    </section>`;
+
+    return tabletemplate;
+}
+
+function addColumn(event, table) {
+    let eventdates = event.dates;
+
+    eventdates.map(
+        (dates) =>
+            (table.innerHTML += `<th scope="col"class="vent__content__table__header__col event__content__table__header__col--date">${getDayandMonth(
+                dates.date
+            )}</th>
+        `)
+    );
+}
+
+// eventdates.map((e=>
+//     output +=
+//     `<th scope="col"class="vent__content__table__header__col event__content__table__header__col--date"><p>${e.date}</p></th>
+//                `));
+
+// function createColumn(date) {
+//     return ml("th", {scope:"col", class:"event__content__table__header__col event__content__table__header__col--date"}, date)
+// }
+
+// return ml("section", {class: "event__content"}, [
+//     ml("table", {class: "event__content__table"}, [
+//         ml("thead", {class: "event__content__table__header"},
+//             ml("tr", {class: "event__content__table__header__row"}, [
+//                 ml("th", {scope:"col", class:"event__content__table__header__col event__content__table__header__col--members"}, "Members"),
+
+// INPUT each date one column
+//                 (eventdates.map((date) => {
+//                     return createColumn(date.date)}))
+//             ]),
+//         ),
+
+//         ml("tbody", {class: "event__content__table__data"}, [
+//             ml("tr", {class: "event__content__table__data__row"} [
+//                 ml("th", {scope:"row", class:"event__content__table__attendee"}, event.dates[1].date),
+//                 ml("td", {class:"event__content__table__attendee__availability"},
+//                 ml("input", {type: "checkbox", type:"checkbox"})
+//                 ),
+//                 ml("td", {class:"event__content__table__attendee__availability"},
+//                 ml("input", {type: "checkbox", type:"checkbox"})
+//                 )
+
+//             ]),
+//             ml("tr", {class: "event__content__table__header__row"}, [
+//                 ml("th", {scope:"row", class:"event__content__table__attendee"}),
+//                 ml("td", {class:"event__content__table__attendee__availability"},
+//                 ml("input", {type: "checkbox", type:"checkbox"})
+//                 ),
+//                 ml("td", {class:"event__content__table__attendee__availability"},
+//                 ml("input", {type: "checkbox", type:"checkbox"})
+//                 ),
+
+//             ]),
+//         ]),
+//     ]),
+
+// ])
 
 // let eventheader = document.querySelector('.eventheader');
 // let eventbox = document.createelement('.event');
@@ -115,17 +164,3 @@ const allevents = document.querySelector(".eventsection");
 // import data from "../../../../backend/server/db/db.json" assert {type: 'json'};
 // const map = new Map(Object.entries(JSON.parse(data)));
 // console.log(map)
-
-export const displayAllEvents = async () => {
-    let events = await getAllEvents();
-    events.forEach((e) => {
-        let event = displayEvent(e);
-        let section = event.querySelectorAll("section");
-        section[0].addEventListener("click", (e) => {
-            let button = event.querySelectorAll("button");
-            if (e.target !== button[0] && e.target !== button[1]) displayOrHideElement(section[1]);
-        });
-        allevents.appendChild(event);
-    });
-    //console.log("a:" +displayevents)
-};
