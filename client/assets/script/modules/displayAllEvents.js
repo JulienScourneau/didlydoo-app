@@ -1,5 +1,5 @@
 import { ml } from './generateDomcontent.js';
-import { getAllEvents } from "./getAllEvents.js";
+import { getAllEvents } from "../db/getAllEvents.js";
 import { getDayandMonth } from "./getSelectedDate.js";
 import * as eventListener from "./eventListener.js";
 import {displayOrHideElement} from "./displayOrHideElement.js"
@@ -50,17 +50,19 @@ export const displayAllEvents = async () => {
     let events = await getAllEvents();
     events.forEach((e) => {
         let eventbox = displayEvent(e);
-        let section = eventbox.querySelectorAll("section");
-        section[0].addEventListener("click", (e) => {
-            let button = eventbox.querySelectorAll("button");
-            if (e.target !== button[0] && e.target !== button[1]) displayOrHideElement(section[1]);
-        });
         allevents.appendChild(eventbox);
         eventbox.innerHTML += createEventTable(e);
         let tableheader = eventbox.querySelector('.event__content__table__header__row');
         addColumn(e, tableheader);
-        
-        // eventbox.appendChild(eventtable)
+        let section = eventbox.querySelectorAll("section");
+        console.log(section)
+
+        section[0].addEventListener("click", (e) => {
+            let button = eventbox.querySelectorAll("button");
+            if (e.target !== button[0] && e.target !== button[1]) displayOrHideElement(section[1]);
+        });
+
+
     });
 
 };
